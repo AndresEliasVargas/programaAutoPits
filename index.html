@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Programa AutoPits</title>
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Personal CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Hacks para las gradientes -->
+    <!--[if gte IE 9] <style type="text/css"> .gradient { filter: none; } </style> <![endif]-->
+</head>
+
+<body class="container-fluid">
+    <main>
+        <!-- Recordar hacer el responsive para los padding y margins -->
+        <section class="row section1 pt-5" id="ingreso">
+            <div class="col-1 col-md-3 col-lg-3"></div>
+
+            <div class="col-10 col-md-6 col-lg-6 mt-5 py-5 text-center">
+                <h1 class="text-center mt-5 pt-5 text-light">Registro Autos</h1>
+
+                <form class="my-5">
+                    <div class="form-group">
+                        <input type="number" class="form-control bg-transparent" placeholder="Placa" id="placaTxt">
+                    </div>
+                </form>
+
+                <form class="my-5">
+                    <div class="form-group">
+                        <input type="text" class="form-control bg-transparent" placeholder="Modelo" id="modeloTxt">
+                    </div>
+                </form>
+
+                <form class="my-5">
+                    <div class="form-group">
+                        <input type="text" class="form-control bg-transparent" placeholder="Marca" id="marcaTxt">
+                    </div>
+                </form>
+
+                <button type="button" class="btn btn-lg btn-danger mt-2" id="btnAgregar">Agregar</button>
+            </div>
+
+            <div class="col-1 col-md-3 col-lg-3"></div>
+        </section>
+
+        <section class="row bg-dark">
+            <div class="col-1 col-md-3 col-lg-3"></div>
+
+            <div class="col-10 col-md-6 col-lg-6 mt-5 py-5">
+                <table class="mt-5 table table-hover table-dark" id="tblClientes">
+                    <thead class="text-center">
+                        <tr>
+                            <th scope="col">Placa</th>
+                            <th scope="col">Modelo</th>
+                            <th scope="col">Marca</th>
+                            <th scope="col">Cambios</th>
+                            <th scope="col">Mostrar</th>
+                            <th scope="col">Agregar Cambio Aceite</th>
+                            <th scope="col">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center"></tbody>
+                </table>
+            </div>
+
+            <div class="col-1 col-md-3 col-lg-3"></div>
+        </section>
+    </main>
+
+    <!-- Inicio: Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- Fin: Bootstrap -->
+
+    <!-- Inicio: Sistema de Validación SweetAlert 2.8 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <!-- Fin: Sistema de Validación SweetAlert 2.8 -->
+
+    <!-- Inicio: Objetos -->
+    <script src="js/Empresa.js"></script>
+    <script src="js/Auto.js"></script>
+    <script src="js/CambioAceite.js"></script>
+    <script src="js/Aceite.js"></script>
+    <!-- Fin: Objetos -->
+
+    <!-- Inicio: Programa -->
+    <script src="js/app.js"></script>
+    <!-- Fin: Programa -->
+</body>
+
+</html>

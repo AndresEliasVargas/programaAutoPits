@@ -1,0 +1,66 @@
+@charset "UTF-8";
+:root {
+    --input-border: #c8c896;
+    --input-color: #FFF;
+    --amarillo-claro: #ffff88;
+    --celeste: rgba(93, 166, 177, 0.5);
+}
+
+/* Inicio: Resets */
+
+/* Remueve el number spin del input */
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+textarea:focus, textarea.form-control:focus, input.form-control:focus, input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=number]:focus, [type=text].form-control:focus, [type=password].form-control:focus, [type=email].form-control:focus, [type=tel].form-control:focus, [contenteditable].form-control:focus {
+    box-shadow: inset 0 -1px 0 var(--amarillo-claro);
+}
+
+section {
+    height: 100vh;
+}
+
+/* Fin: Resets */
+
+/* Inicio: Fondo de la primera sección */
+#ingreso {
+    /* Los colores van en rgba para manejar la opacidad */
+    background: linear-gradient(270deg, rgba(195, 208, 130, 0.5), rgba(153, 167, 85, 0.5), rgba(116, 137, 12, 0.5)), url(../img/car.jpg);;
+    background-size: 400% 400%;
+    background-size: cover;
+}
+
+.cajonTranspatente{
+    background-color: var(--celeste);
+}
+
+/* Fin: Fondo de la primera sección */
+
+/* Inicio: Input */
+#ingreso .form-control {
+    border-top: 0;
+    border-bottom: 2px solid var(--input-border);
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+}
+
+#ingreso .form-control:focus {
+    border-bottom: 3px solid var(--amarillo-claro);
+}
+
+#ingreso input::placeholder, #ingreso input {
+    color: var(--input-color);
+}
+
+#ingreso input:focus{
+    font-size: 1.063em; /* 17px */
+}
+/* Fin: Input */
