@@ -40,7 +40,7 @@ class Empresa {
     };
 
     //Eliminar
-    eliminarCliente(pPlaca) {
+    eliminarAuto(pPlaca) {
         //sweetalert2 - Botones de cancelar y eliminar, estilos
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
@@ -64,13 +64,14 @@ class Empresa {
                 // Métodos que permiten los cambios en la persona y la interfaz
                 for (let i = 0; i < this.autos.length; i++) {
                     if (pPlaca === this.autos[i].placa) {
-
+                        let placa = this.autos[i].placa;
+                        
                         this.autos.splice(i, 1);
-                        // actualizarTabla();
+                        actualizarTabla();
 
                         swalWithBootstrapButtons.fire(
                             'Eliminado!',
-                            'El automovil con la placa' + this.autos[i].placa + ' ha sido eliminado(a).',
+                            'El automovil con la placa ' + placa + ' ha sido eliminado(a).',
                             'success'
                         )
                     }
@@ -87,10 +88,8 @@ class Empresa {
 
     //Agregar los cambios de aceite desde la propiedad de Agregar principal
     agregarCambiosAceite() {
-        if (this.cambioAceite === undefined) {
-            let cantidad = prompt('Cantidad de cambios de aceite');
-            return cantidad;
-        }
+        let cantidad = prompt('Cantidad de cambios de aceite');
+        return cantidad;
     };
 
 };

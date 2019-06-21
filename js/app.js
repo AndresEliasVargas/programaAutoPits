@@ -93,7 +93,7 @@ const validar = (psPlaca, psModelo, psMarca) => {
     };
 
     return bError;
-}
+};
 
 //Actualizar Tabla
 const actualizarTabla = () => {
@@ -160,7 +160,7 @@ const actualizarTabla = () => {
 
 const mostrar = (e) => {
     console.log(e.target.dataset.placa);
-}
+};
 
 const agregarCambiosAceiteSum = (e) => {
     //console.log(e.target.dataset.email);
@@ -168,8 +168,8 @@ const agregarCambiosAceiteSum = (e) => {
 };
 
 const removerAuto = (e) => {
-    console.log(e.target.dataset.placa);
-    //nombreEmpresa.eliminarCliente(e.target.dataset.email);
+    // console.log(e.target.dataset.placa);
+    nombreEmpresa.eliminarAuto(e.target.dataset.placa);
 };
 
 actualizarTabla();
