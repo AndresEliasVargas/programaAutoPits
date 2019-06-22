@@ -4,7 +4,7 @@
 const inputPlaca = document.querySelector('#placaTxt');
 const inputModelo = document.querySelector('#modeloTxt');
 const inputMarca = document.querySelector('#marcaTxt');
-const inputCambiosAceite = document.querySelector('#cambiosAceiteTxt');
+// const inputCambiosAceite = document.querySelector('#cambiosAceiteTxt');
 const outputTabla = document.querySelector('#tblAutos');
 
 //botones
@@ -158,13 +158,52 @@ const actualizarTabla = () => {
     }
 };
 
+/*****************************OJO LE FALTA*********************************************** */
 const mostrar = (e) => {
     console.log(e.target.dataset.placa);
+
+
+    /*****************************OJO LE FALTA*********************************************** */
+
+    const tbl = document.createElement('table');
+    tbl.setAttribute('id', 'tblCambiosAceite');
+    const tbody = document.create('#tblAutos tbody');
+
+    //Limpia la tabla
+    for (let i = (outputTabla.rows.length - 1); i > 0; i--) {
+        outputTabla.deleteRow(i);
+    }
+
+    //Crea el row, las columnas y los botones de la tabla
+    for (let i = 0; i < nombreEmpresa.autos.length; i++) {
+        //crea el row
+        let fila = tbody.insertRow();
+
+        //crea las celdas
+        let celdaPlaca = fila.insertCell();
+        let celdaModelo = fila.insertCell();
+        let celdaMarca = fila.insertCell();
+        let celdaCambios = fila.insertCell();
+        let celdaOcultar = fila.insertCell();
+
+        //crea los botones
+        let btnOcultar = document.createElement('button');
+
+        //Inserta los datos en la celda
+        celdaPlaca.innerHTML = nombreEmpresa.autos[i].placa;
+        celdaModelo.innerHTML = nombreEmpresa.autos[i].modelo;
+        celdaMarca.innerHTML = nombreEmpresa.autos[i].marca;
+        celdaCambios.innerHTML = nombreEmpresa.autos[i].cambioAceite;
+    }
 };
 
 const agregarCambiosAceiteSum = (e) => {
-    //console.log(e.target.dataset.email);
-    console.log(e.target.dataset.placa);
+    /* Mostrar tabla de registro para los cambios de aceite */
+    //enviar los datos de dia, y notas al objeto empresa, para que los almacene con la placa, el dia y las notas
+
+    // actualizar la cantidad del nuevo cambio con la tabla actual debe sumar 1 cambio por fecha
+    nombreEmpresa.agregarCambiosAceiteSumatoria(e.target.dataset.placa);
+    actualizarTabla();
 };
 
 const removerAuto = (e) => {

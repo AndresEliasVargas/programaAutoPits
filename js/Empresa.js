@@ -6,6 +6,7 @@ class Empresa {
         this.autos = [];
     };
 
+    //Agregar Auto
     agregarAuto(pnuevoAuto) {
         for (let i = 0; i < this.autos.length; i++) {
             if (pnuevoAuto.placa === this.autos[i].placa) {
@@ -65,7 +66,7 @@ class Empresa {
                 for (let i = 0; i < this.autos.length; i++) {
                     if (pPlaca === this.autos[i].placa) {
                         let placa = this.autos[i].placa;
-                        
+
                         this.autos.splice(i, 1);
                         actualizarTabla();
 
@@ -90,6 +91,16 @@ class Empresa {
     agregarCambiosAceite() {
         let cantidad = prompt('Cantidad de cambios de aceite');
         return cantidad;
+    };
+
+    //Sumatoria de cambios de aceite
+    agregarCambiosAceiteSumatoria(pnPlaca) {
+        for (let i = 0; i < this.autos.length; i++) {
+            if (pnPlaca === this.autos[i].placa) {
+                let cantidad = Number(prompt('Cantidad de cambios de aceite realizados para actualizar'));
+                this.autos[i].cambioAceite += cantidad;
+            }
+        };
     };
 
 };
