@@ -1,5 +1,7 @@
 'use strict';
 
+const aceiteForm = document.querySelector('#formCambioAceite');
+
 //Campos de inputs
 const inputPlaca = document.querySelector('#placaTxt');
 const inputModelo = document.querySelector('#modeloTxt');
@@ -58,7 +60,7 @@ const validarCampos = () => {
         //AgregarDatos
         let estadoDatos = nombreEmpresa.agregarAuto(nuevoAuto);
         if (estadoDatos) {
-            // limpiarCampos();
+            limpiarCampos();
             actualizarTabla();
         }
     }
@@ -159,7 +161,7 @@ const actualizarTabla = () => {
 };
 
 /*****************************OJO LE FALTA*********************************************** */
-const mostrar = (e) => {
+const mostrar = e => {
     console.log(e.target.dataset.placa);
 
 
@@ -197,18 +199,34 @@ const mostrar = (e) => {
     }
 };
 
-const agregarCambiosAceiteSum = (e) => {
-    /* Mostrar tabla de registro para los cambios de aceite */
-    //enviar los datos de dia, y notas al objeto empresa, para que los almacene con la placa, el dia y las notas
-
+const agregarCambiosAceiteSum = e => {
+    mostrarFormulario();
+    
     // actualizar la cantidad del nuevo cambio con la tabla actual debe sumar 1 cambio por fecha
-    nombreEmpresa.agregarCambiosAceiteSumatoria(e.target.dataset.placa);
+    nombreEmpresa.agregarSumatoria(aceiteForm, e.target.dataset.placa);
     actualizarTabla();
+    ocultarFormulario();
 };
 
-const removerAuto = (e) => {
+const removerAuto = e => {
     // console.log(e.target.dataset.placa);
     nombreEmpresa.eliminarAuto(e.target.dataset.placa);
+};
+
+const mostrarFormulario = () => {
+    aceiteForm.classList.add('d-block');
+    aceiteForm.classList.remove('d-none');
+};
+
+const ocultarFormulario = () => {
+    aceiteForm.classList.add('d-none');
+    aceiteForm.classList.remove('d-block');
+};
+
+const limpiarCampos = () => {
+    inputPlaca.value = '';
+    inputModelo.value = '';
+    inputMarca.value = '';
 };
 
 actualizarTabla();

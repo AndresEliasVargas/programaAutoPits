@@ -4,6 +4,8 @@ class Empresa {
     constructor(psNombre) {
         this.nombre = psNombre;
         this.autos = [];
+        this.cambioAceites = [];
+        this.aceites = [];
     };
 
     //Agregar Auto
@@ -88,13 +90,20 @@ class Empresa {
     };
 
     //Agregar los cambios de aceite desde la propiedad de Agregar principal
-    agregarCambiosAceite() {
-        let cantidad = prompt('Cantidad de cambios de aceite');
-        return cantidad;
+    agregarCambiosAceite(pnPlaca) {
+        let cantidad = Number(prompt('Cantidad de cambios de aceite'));
+        return cantidad;  
     };
 
     //Sumatoria de cambios de aceite
-    agregarCambiosAceiteSumatoria(pnPlaca) {
+    agregarSumatoria(paceiteForm, pnPlaca) {
+        paceiteForm.classList.add('d-block');
+        paceiteForm.classList.remove('d-none');
+    
+        
+        
+        
+//  SUmatoria para aumentar en pantalla y el array la actualizacion de los cambios de aceite.
         for (let i = 0; i < this.autos.length; i++) {
             if (pnPlaca === this.autos[i].placa) {
                 let cantidad = Number(prompt('Cantidad de cambios de aceite realizados para actualizar'));
