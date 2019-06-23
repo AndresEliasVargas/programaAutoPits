@@ -1,4 +1,4 @@
-'use strict';
+  'use strict';
 
 class Aceite {
   constructor (psPlaca, psTipo, psMarca) {

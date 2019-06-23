@@ -1,5 +1,6 @@
 'use strict';
 
+//Forms
 const aceiteForm = document.querySelector('#formCambioAceite');
 
 //Campos de inputs
@@ -24,6 +25,11 @@ const carro1 = new Auto('230234', 'Yaris', 'Toyota', 2);
 const carro2 = new Auto('342123', 'Canry', 'Toyota', 3);
 const carro3 = new Auto('BBB234', 'Accent', 'Hyundai', 2);
 
+//Debería de tener quemados los datos que se van a guardar en los otros objetos
+
+
+
+
 nombreEmpresa.agregarAuto(carro1);
 nombreEmpresa.agregarAuto(carro2);
 nombreEmpresa.agregarAuto(carro3);
@@ -32,7 +38,7 @@ const validarCampos = () => {
     let sPlaca = inputPlaca.value;
     let sModelo = inputModelo.value;
     let sMarca = inputMarca.value;
-    let nCambiosAceite = nombreEmpresa.agregarCambiosAceite();
+    let nCambiosAceite = nombreEmpresa.agregarCambiosAceite(sPlaca);
     
     let nuevoAuto = new Auto(sPlaca, sModelo, sMarca, nCambiosAceite);
 
@@ -200,9 +206,8 @@ const mostrar = e => {
 };
 
 const agregarCambiosAceiteSum = e => {
-    mostrarFormulario();
+    mostrarFormulario(e);
     
-    // actualizar la cantidad del nuevo cambio con la tabla actual debe sumar 1 cambio por fecha
     nombreEmpresa.agregarSumatoria(aceiteForm, e.target.dataset.placa);
     actualizarTabla();
     ocultarFormulario();
@@ -213,9 +218,12 @@ const removerAuto = e => {
     nombreEmpresa.eliminarAuto(e.target.dataset.placa);
 };
 
-const mostrarFormulario = () => {
-    aceiteForm.classList.add('d-block');
-    aceiteForm.classList.remove('d-none');
+const mostrarFormulario = (pe) => {
+    if(pe === 'click'){
+        console.log("It's working");
+    }
+    aceiteForm.setAttribute('class', 'd-block');
+    aceiteForm.removeAttribute('class', 'd-none');
 };
 
 const ocultarFormulario = () => {

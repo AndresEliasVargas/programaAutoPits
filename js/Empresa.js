@@ -90,20 +90,42 @@ class Empresa {
     };
 
     //Agregar los cambios de aceite desde la propiedad de Agregar principal
-    agregarCambiosAceite(pnPlaca) {
+    agregarCambiosAceite(psPlaca) {
         let cantidad = Number(prompt('Cantidad de cambios de aceite'));
-        return cantidad;  
+        let notas = prompt('Coloque por favor un mensaje para el registro de este dato');
+
+        const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+        let dFechaCompleta = new Date();
+        const dMonth = meses[dFechaCompleta.getMonth()];
+        const dDay = dFechaCompleta.getDate();
+        const dYear = dFechaCompleta.getFullYear();
+        let sFechaCompleta;
+
+        sFechaCompleta = dDay + '-' + dMonth + '-' + dYear;
+
+        //Esto permite al usuario dejar por default 0 en caso de que a la hora del registro deje el campo vacío o surja algún tipo de error
+        if (cantidad == '' || cantidad == null || cantidad == undefined || cantidad == NaN) {
+            cantidad = 0;
+        }
+
+        let nuevoRegistroCA = new CambioAceite(psPlaca, sFechaCompleta, notas);
+        let estadoDatos = this.cambioAceites.push(nuevoRegistroCA);
+
+        if (estadoDatos) {
+            limpiarCampos();
+            actualizarTabla();
+        }
+
+        return cantidad;
     };
 
     //Sumatoria de cambios de aceite
     agregarSumatoria(paceiteForm, pnPlaca) {
-        paceiteForm.classList.add('d-block');
-        paceiteForm.classList.remove('d-none');
-    
-        
-        
-        
-//  SUmatoria para aumentar en pantalla y el array la actualizacion de los cambios de aceite.
+
+
+
+        //  SUmatoria para aumentar en pantalla y el array la actualizacion de los cambios de aceite.
         for (let i = 0; i < this.autos.length; i++) {
             if (pnPlaca === this.autos[i].placa) {
                 let cantidad = Number(prompt('Cantidad de cambios de aceite realizados para actualizar'));
