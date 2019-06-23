@@ -209,8 +209,7 @@ const agregarCambiosAceiteSum = e => {
     mostrarFormulario(e);
     
     nombreEmpresa.agregarCambioyAceite(e.target.dataset.placa);
-    console.log(nombreEmpresa.cambioAceites);
-    console.log(nombreEmpresa.aceites);
+    actualizarTabla();
 
     ocultarFormulario();
 };

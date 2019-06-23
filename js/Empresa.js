@@ -97,19 +97,14 @@ class Empresa {
         let nuevoRegistroAceite = new Aceite(psPlaca, tipo, marca);
         let estadoDatos = this.aceites.push(nuevoRegistroAceite);
 
-        //agregarCambiosAceite(psPlaca);
+        let cantidad = this.agregarCambiosAceite(psPlaca);
 
-        if (estadoDatos) {
-            limpiarCampos();
-            actualizarTabla();
-        }
-
-        //  SUmatoria para aumentar en pantalla y el array la actualizacion de los cambios de aceite.
+        //  Sumatoria para aumentar en pantalla y el array la actualizacion de los cambios de aceite.
         for (let i = 0; i < this.autos.length; i++) {
-            if (pnPlaca === this.autos[i].placa) {
-                let cantidad = Number(prompt('Cantidad de cambios de aceite realizados para actualizar'));
-                return this.autos[i].cambioAceite += cantidad;
+            if (psPlaca === this.autos[i].placa) {
+                this.autos[i].cambioAceite += cantidad;
             }
+            return cantidad;
         };
     };
 
