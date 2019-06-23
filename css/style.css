@@ -23,8 +23,16 @@ textarea:focus, textarea.form-control:focus, input.form-control:focus, input[typ
     box-shadow: inset 0 -1px 0 var(--amarillo-claro);
 }
 
-section {
+section:first-child {
     height: 100vh;
+}
+
+.display-none{
+    display: none;
+}
+
+.display-block{
+    display: block;
 }
 
 /* Fin: Resets */

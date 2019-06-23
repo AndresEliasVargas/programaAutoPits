@@ -39,7 +39,7 @@ const validarCampos = () => {
     let sModelo = inputModelo.value;
     let sMarca = inputMarca.value;
     let nCambiosAceite = nombreEmpresa.agregarCambiosAceite(sPlaca);
-    
+
     let nuevoAuto = new Auto(sPlaca, sModelo, sMarca, nCambiosAceite);
 
     let validarEstado = true;
@@ -61,7 +61,7 @@ const validarCampos = () => {
                 text: 'Los campos no pueden estar vacios',
             })
             validarEstado = false;
-        }; 
+        };
     } else {
         //AgregarDatos
         let estadoDatos = nombreEmpresa.agregarAuto(nuevoAuto);
@@ -166,48 +166,49 @@ const actualizarTabla = () => {
     }
 };
 
-/*****************************OJO LE FALTA*********************************************** */
 const mostrar = e => {
-    console.log(e.target.dataset.placa);
-
-
-    /*****************************OJO LE FALTA*********************************************** */
-
-    const tbl = document.createElement('table');
-    tbl.setAttribute('id', 'tblCambiosAceite');
-    const tbody = document.create('#tblAutos tbody');
+    let tbody = document.querySelector('#tblMostrar tbody');
 
     //Limpia la tabla
     for (let i = (outputTabla.rows.length - 1); i > 0; i--) {
         outputTabla.deleteRow(i);
     }
 
-    //Crea el row, las columnas y los botones de la tabla
-    for (let i = 0; i < nombreEmpresa.autos.length; i++) {
+    //Para el objeto CambioAceite
+    for (let i = 0; i < nombreEmpresa.cambioAceites.length; i++) {
         //crea el row
         let fila = tbody.insertRow();
 
         //crea las celdas
         let celdaPlaca = fila.insertCell();
-        let celdaModelo = fila.insertCell();
-        let celdaMarca = fila.insertCell();
-        let celdaCambios = fila.insertCell();
-        let celdaOcultar = fila.insertCell();
+        let celdaFechaCompleta = fila.insertCell();
+        let celdaNotas = fila.insertCell();
 
-        //crea los botones
-        let btnOcultar = document.createElement('button');
 
         //Inserta los datos en la celda
-        celdaPlaca.innerHTML = nombreEmpresa.autos[i].placa;
-        celdaModelo.innerHTML = nombreEmpresa.autos[i].modelo;
-        celdaMarca.innerHTML = nombreEmpresa.autos[i].marca;
-        celdaCambios.innerHTML = nombreEmpresa.autos[i].cambioAceite;
+        celdaPlaca.innerHTML = nombreEmpresa.cambioAceites[i].placa;
+        celdaFechaCompleta.innerHTML = nombreEmpresa.cambioAceites[i].fechaRegistro;
+
+        //Para Objeto Aceite
+        for (let j = 0; j < nombreEmpresa.aceites.length; j++) {
+            //crea las celdas
+            //let celdaCambios = fila.insertCell();
+            let celdaTipo = fila.insertCell();
+            let celdaMarca = fila.insertCell();
+
+            //Inserta los datos en la celda
+            celdaTipo.innerHTML = nombreEmpresa.aceites[j + 1].tipo;
+            celdaMarca.innerHTML = nombreEmpresa.aceites[j + 1].marca;
+            // celdaCambios.innerHTML = nombreEmpresa.aceites[j + 1].cambioAceite;
+        }
+
+        celdaNotas.innerHTML = nombreEmpresa.cambioAceites[i].notas;
     }
 };
 
 const agregarCambiosAceiteSum = e => {
     mostrarFormulario(e);
-    
+
     nombreEmpresa.agregarCambioyAceite(e.target.dataset.placa);
     actualizarTabla();
 
@@ -220,7 +221,7 @@ const removerAuto = e => {
 };
 
 const mostrarFormulario = (pe) => {
-    if(pe === 'click'){
+    if (pe === 'click') {
         console.log("It's working");
     }
     aceiteForm.setAttribute('class', 'd-block');

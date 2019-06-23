@@ -53,7 +53,7 @@
         <section class="row bg-dark">
             <div class="col-1 col-md-3 col-lg-3"></div>
 
-            <div class="col-10 col-md-6 col-lg-6 mt-5 py-5">
+            <div class="col-10 col-md-6 col-lg-6 my-5 py-5">
                 <table class="mt-5 table table-hover table-dark" id="tblAutos">
                     <thead class="text-center">
                         <tr>
@@ -71,15 +71,33 @@
                     </tbody>
                 </table>
 
-                <section id="formCambioAceite" class="d-none">
+                <section id="formCambioAceite" class="display-none">
                     <form class="my-5">
                         <div class="form-group">
                             <p class="text-white mb-3"> Día del cambio de aceite</p>
                             <input type="date" class="form-control mb-4" id="dateTxt">
                             <textarea placeholder="Mensaje" class="form-control mb-3" id="notas"></textarea>
-                            <button class="btn btn-info"></button>
+                            <button class="btn btn-info">Salvar Datos</button>
                         </div>
                     </form>
+                </section>
+
+                <section class="">
+                    <table class="mt-5 table table-hover table-dark" id="tblMostrar">
+                        <thead class="text-center">
+                            <tr>
+                                <th>Placa</th>
+                                <th>Fecha</th>
+                                <th>Tipo de Aceite</th>
+                                <th>Marca de Aceite</th>
+                                <!-- <th>Cantidad de cambios</th> -->
+                                <th>Notas</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+
+                        </tbody>
+                    </table>
                 </section>
             </div>
 

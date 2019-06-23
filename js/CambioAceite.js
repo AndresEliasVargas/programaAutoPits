@@ -6,7 +6,7 @@ class CambioAceite {
       this.placa = psPlaca;
       this.fechaRegistro = psFechaRegistro;
       this.notas = psNotas;
-  } 
+  }
 
   
 };

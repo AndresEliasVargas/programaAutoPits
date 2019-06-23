@@ -99,6 +99,8 @@ class Empresa {
 
         let cantidad = this.agregarCambiosAceite(psPlaca);
 
+        console.log(this.aceites);
+
         //  Sumatoria para aumentar en pantalla y el array la actualizacion de los cambios de aceite.
         for (let i = 0; i < this.autos.length; i++) {
             if (psPlaca === this.autos[i].placa) {
@@ -131,6 +133,8 @@ class Empresa {
 
         nuevoRegistroCA = new CambioAceite(psPlaca, sFechaCompleta, notas);
         estadoDatos = this.cambioAceites.push(nuevoRegistroCA);
+
+        console.log(this.cambioAceites);
 
         if (estadoDatos) {
             limpiarCampos();
