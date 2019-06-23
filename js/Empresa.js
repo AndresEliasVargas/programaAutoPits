@@ -89,10 +89,35 @@ class Empresa {
         });
     };
 
+    //Sumatoria de cambios de aceite
+    agregarCambioyAceite(psPlaca) {
+        let tipo = prompt('Tipo de Aceite');
+        let marca = prompt('Marca de Aceite');
+
+        let nuevoRegistroAceite = new Aceite(psPlaca, tipo, marca);
+        let estadoDatos = this.aceites.push(nuevoRegistroAceite);
+
+        //agregarCambiosAceite(psPlaca);
+
+        if (estadoDatos) {
+            limpiarCampos();
+            actualizarTabla();
+        }
+
+        //  SUmatoria para aumentar en pantalla y el array la actualizacion de los cambios de aceite.
+        for (let i = 0; i < this.autos.length; i++) {
+            if (pnPlaca === this.autos[i].placa) {
+                let cantidad = Number(prompt('Cantidad de cambios de aceite realizados para actualizar'));
+                return this.autos[i].cambioAceite += cantidad;
+            }
+        };
+    };
+
     //Agregar los cambios de aceite desde la propiedad de Agregar principal
     agregarCambiosAceite(psPlaca) {
         let cantidad = Number(prompt('Cantidad de cambios de aceite'));
         let notas = prompt('Coloque por favor un mensaje para el registro de este dato');
+        let nuevoRegistroCA, estadoDatos;
 
         const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 
@@ -109,8 +134,8 @@ class Empresa {
             cantidad = 0;
         }
 
-        let nuevoRegistroCA = new CambioAceite(psPlaca, sFechaCompleta, notas);
-        let estadoDatos = this.cambioAceites.push(nuevoRegistroCA);
+        nuevoRegistroCA = new CambioAceite(psPlaca, sFechaCompleta, notas);
+        estadoDatos = this.cambioAceites.push(nuevoRegistroCA);
 
         if (estadoDatos) {
             limpiarCampos();
@@ -118,20 +143,6 @@ class Empresa {
         }
 
         return cantidad;
-    };
-
-    //Sumatoria de cambios de aceite
-    agregarSumatoria(paceiteForm, pnPlaca) {
-
-
-
-        //  SUmatoria para aumentar en pantalla y el array la actualizacion de los cambios de aceite.
-        for (let i = 0; i < this.autos.length; i++) {
-            if (pnPlaca === this.autos[i].placa) {
-                let cantidad = Number(prompt('Cantidad de cambios de aceite realizados para actualizar'));
-                this.autos[i].cambioAceite += cantidad;
-            }
-        };
     };
 
 };

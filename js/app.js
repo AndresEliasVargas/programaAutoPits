@@ -35,7 +35,7 @@ nombreEmpresa.agregarAuto(carro2);
 nombreEmpresa.agregarAuto(carro3);
 
 const validarCampos = () => {
-    let sPlaca = inputPlaca.value;
+    let sPlaca = (inputPlaca.value).toUpperCase();
     let sModelo = inputModelo.value;
     let sMarca = inputMarca.value;
     let nCambiosAceite = nombreEmpresa.agregarCambiosAceite(sPlaca);
@@ -208,8 +208,10 @@ const mostrar = e => {
 const agregarCambiosAceiteSum = e => {
     mostrarFormulario(e);
     
-    nombreEmpresa.agregarSumatoria(aceiteForm, e.target.dataset.placa);
-    actualizarTabla();
+    nombreEmpresa.agregarCambioyAceite(e.target.dataset.placa);
+    console.log(nombreEmpresa.cambioAceites);
+    console.log(nombreEmpresa.aceites);
+
     ocultarFormulario();
 };
 
